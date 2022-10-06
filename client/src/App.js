@@ -1,25 +1,57 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { getCurrentUser } from "../src/context/user";
+import background from '../src/assets/background-01.png';
+
+
+import Navbar from './navigation/Navbar';
+import Home from './static/Home';
+import Login from './session/login/Login';
+import Signup from './session/signup/Signup';
+import Todo from './todo/Todo';
+
 
 function App() {
+
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const handleCurrentUser = (user) => {
+    if(user.username) {
+      setCurrentUser(user);
+      setLoggedIn(true);
+      setLoading(false);
+    }
+  }
+
+  const logoutCurrentUser = () => {
+    setCurrentUser(null);
+    setLoggedIn(false);
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    getCurrentUser(handleCurrentUser)
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ backgroundImage:`url(${background})`,backgroundRepeat:"no-repeat",backgroundSize:"contain" }} className="background">
+      <div>
+      <Router>
+        <Navbar loggedIn={ loggedIn } logoutCurrentUser={ logoutCurrentUser } />
+          <Routes>
+            <Route path="/" element = {<Home />} />
+            <Route path="/login" element={ <Login handleCurrentUser={ handleCurrentUser } /> } />
+            <Route path="/signup" element={ <Signup handleCurrentUser={ handleCurrentUser } /> } />
+            <Route path="/to-do" element = {<Todo />} />
+          </Routes>
+        </Router>
+      </div>
     </div>
   );
 }
 
 export default App;
+
