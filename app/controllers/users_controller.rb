@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
   
     def show
-      if logged_in?
+      if logged_in
         render json: current_user, status: :ok
       else
         render json: { errors: ["There is currently no user logged in."] }, status: :bad_request

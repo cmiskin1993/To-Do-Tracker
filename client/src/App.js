@@ -37,8 +37,6 @@ function App() {
   }, [])
 
   return (
-    <div style={{ backgroundImage:`url(${background})`,backgroundRepeat:"no-repeat",backgroundSize:"contain" }} className="background">
-      <div>
       <Router>
         <Navbar loggedIn={ loggedIn } logoutCurrentUser={ logoutCurrentUser } />
           <Routes>
@@ -48,8 +46,6 @@ function App() {
             <Route path="/to-do" element = {<Todo />} />
           </Routes>
         </Router>
-      </div>
-    </div>
   );
 }
 

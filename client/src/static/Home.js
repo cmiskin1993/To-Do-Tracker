@@ -1,6 +1,6 @@
 import React from 'react';
 import '../static/Home.css'
-import HomeVideo from '../assets/Concert - 1630.mp4'
+import HomeVideo from '/Users/cnestel-admin/Desktop/Flatiron-Projects/phase-4-project/To-Do-Tracker/to-do-tracker/client/src/assets/Letters - 5157.mp4'
  
  
 const Home = ( { loggedIn } ) => {
@@ -9,7 +9,6 @@ const Home = ( { loggedIn } ) => {
   if ( loggedIn ){
     return (
       <div>
-        <div className="overlay"></div>
             <h1> Music is the <br/> soundtrack <br/> of your life.</h1>
               <video className='grayscale' src={HomeVideo} autoPlay loop ></video>
       </div>
@@ -18,7 +17,7 @@ const Home = ( { loggedIn } ) => {
   return (
     <div>
       <div className="overlay"></div>
-              <h1> One step closer to your favorite music </h1>
+              <h1> A Better Way to Plan Your Day  </h1>
                 <video className='grayscale' src={HomeVideo} autoPlay loop ></video>
     </div>
     )

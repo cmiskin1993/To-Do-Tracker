@@ -30,7 +30,7 @@ const Navbar = ({ loggedIn, logoutCurrentUser }) => {
   if( loggedIn ) {
     return (
       <div className="navBar">
-          <NavLink to="/" id='logo' className="active-link" onClick={() => closeMenu()} > Mood Music</NavLink>
+        <NavLink to="/" id="logo" className="active-link" onClick={() => closeMenu()} >Sunday Scaries</NavLink>
           <button onClick={handleToggle} >  
           {navbarOpen ? (
             <h3 style={{ color: "#000000", width: "40px", height: "40px" }}> CLOSE </h3>
@@ -48,7 +48,7 @@ const Navbar = ({ loggedIn, logoutCurrentUser }) => {
 
   return (
     <div className="navBar">
-        <NavLink to="/" id="logo" className="active-link" onClick={() => closeMenu()} > Mood Music</NavLink>
+        <NavLink to="/" id="logo" className="active-link" onClick={() => closeMenu()} >Sunday Scaries</NavLink>
         <button onClick={handleToggle} >  
         {navbarOpen ? (
           <h3 style={{ color: "#000000", width: "40px", height: "40px" }} > CLOSE </h3>

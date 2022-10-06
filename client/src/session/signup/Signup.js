@@ -33,7 +33,7 @@ const Signup = ({ handleCurrentUser }) => {
 
   return (
         <div>
-          <h2> Sign up for free to start listening. </h2>
+          <h2> Sign up </h2>
             <form onSubmit={ handleSubmit } className='form-container'>
                 <div>
                     <label htmlFor='username'>Username </label>
