@@ -28,8 +28,9 @@ export const createAccount = async (details, handleCurrentUser) => {
     })
   
     const data = await resp.json();
-  
     handleCurrentUser(data);
+    console.log(handleCurrentUser)
+
   }
   
   export const logout = async (e, logoutCurrentUser) => {
@@ -61,4 +62,5 @@ export const createAccount = async (details, handleCurrentUser) => {
   
     console.log(data)
     handleCurrentUser(data);
+    console.log(handleCurrentUser)
   }

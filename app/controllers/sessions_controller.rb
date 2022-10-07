@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
       @user = User.find_by_username(params[:username])
       if @user && @user.authenticate(params[:password])
         login_user
+        binding.pry
         render json: @user, status: :ok
       else
         render json: { errors: ["Username or Password did not match."] }
