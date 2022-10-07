@@ -5,7 +5,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.save
         # logs in user
-        login_user # creates new session
+        login_user
         render json: @user
       else
         render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
   
     def show
-      if logged_in
+      if logged_in?
         render json: current_user, status: :ok
       else
         render json: { errors: ["There is currently no user logged in."] }, status: :bad_request

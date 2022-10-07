@@ -39,9 +39,9 @@ const Navbar = ({ loggedIn, logoutCurrentUser }) => {
           )}
         </button>        
           <ul className={`menuNav ${navbarOpen ? " showMenu" : ""}`}>
-            <li><NavLink to="/to-do" className="active-link" onClick={() => closeMenu()}> Todo List</NavLink></li>
+            <li><NavLink to="/create-to-do" className="active-link" onClick={() => closeMenu()}> Todo List</NavLink></li>
           </ul>
-          <li><NavLink id='logout' to="/logout" onClick={ (e) => logout(e, logoutCurrentUser) }>Logout</NavLink></li>
+          <NavLink id='logout' to="/logout" onClick={ (e) => logout(e, logoutCurrentUser) }>Logout</NavLink>
       </div>
       )
   }

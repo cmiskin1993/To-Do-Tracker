@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { getCurrentUser } from "../src/context/user";
-import background from '../src/assets/background-01.png';
 
 
 import Navbar from './navigation/Navbar';
 import Home from './static/Home';
 import Login from './session/login/Login';
 import Signup from './session/signup/Signup';
-import Todo from './todo/Todo';
+import NewTodo from './todo/NewTodo';
 
 
 function App() {
@@ -17,6 +16,17 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // auto-login
+    fetch("/current-user").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
 
   const handleCurrentUser = (user) => {
     if(user.username) {
@@ -43,7 +53,8 @@ function App() {
             <Route path="/" element = {<Home />} />
             <Route path="/login" element={ <Login handleCurrentUser={ handleCurrentUser } /> } />
             <Route path="/signup" element={ <Signup handleCurrentUser={ handleCurrentUser } /> } />
-            <Route path="/to-do" element = {<Todo />} />
+            <Route path="/create-to-do" element = {<NewTodo user={user} /> } />
+
           </Routes>
         </Router>
   );

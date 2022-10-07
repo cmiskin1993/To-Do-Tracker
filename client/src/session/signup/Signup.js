@@ -26,7 +26,7 @@ const Signup = ({ handleCurrentUser }) => {
     e.preventDefault();
 
     createAccount(state, handleCurrentUser)
-    navigate('/to-do')
+    navigate('/create-to-do')
   }
 
 

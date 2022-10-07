@@ -25,7 +25,7 @@ import { login } from '/Users/cnestel-admin/Desktop/Flatiron-Projects/phase-4-pr
       e.preventDefault();
   
       login(state, handleCurrentUser)
-      navigate('/to-do')
+      navigate('/create-to-do')
     }
 
   return (
